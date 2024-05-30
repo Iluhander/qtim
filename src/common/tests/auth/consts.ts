@@ -1,0 +1,1 @@
+export const FakeAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiaXZhbi5pdmFub3YiLCJpYXQiOjE3MTcwNTY1NDIsImV4cCI6MTcxNzA1Njg0Mn0.mh_sbjWGag1WrEa5vNHvfz-MSqnSrBhBraVn30KaOD0';
