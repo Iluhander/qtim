@@ -1,7 +1,7 @@
-import { FakeAccessToken } from "./consts";
+import { FakeToken } from "./consts";
 
 export default function fakeReq() {
-  const authorization = `Bearer ${FakeAccessToken}`;
+  const authorization = `Bearer ${FakeToken}`;
   const req = {
     headers: {
       authorization

@@ -10,6 +10,7 @@ import { Session } from 'inspector';
 import * as mocks from 'node-mocks-http';
 import { ConfigService } from '@nestjs/config';
 import { UsersService } from '../../users/users.service';
+import { FakeToken } from '../../common/tests/auth/consts';
 
 const defaultUser = {
   username: 'ivan.ivanov',
@@ -34,7 +35,15 @@ describe('AuthController', () => {
             })
           }
         },
-        AuthService,
+        {
+          provide: AuthService,
+          useValue: {
+            signIn: jest.fn(val => ({
+              accessToken: FakeToken,
+              refreshToken: FakeToken
+            }))
+          }
+        },
         UsersService,
         JwtService,
         {
@@ -54,7 +63,12 @@ describe('AuthController', () => {
 
   describe('signin', () => {
     it('should signin', async () => {
-      expect(true).toBe(true);
+      const req = mocks.createRequest()
+      const res = mocks.createResponse()
+
+      const result = await controller.signin(req, defaultUser, res);
+
+      expect(result.accessToken).toBe(FakeToken);
     });
   });
 });
